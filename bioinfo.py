@@ -1,8 +1,21 @@
 #!usr/bin/python
-# Filename = translate.py
+# Filename = bioinfo.py
 
-f = file('nucleotide.fa')
-#sequence = f.readline()
+def read_fasta(filename):
+    '''
+    open a fasta file and read all sequences's names and sequences
+    all names saved in name list, all sequences saved in seq list,
+    all names and sequences saved in seqs dictionary.
+     '''
+    name = []
+    seq = []
+    seqs = {}
+    with open(filename, 'r') as f:
+        s = readline()
+        if s.startwith('>'):
+            name.append(s)
+
+
 
 tranalate_code = {    'AAA' : 'K', 'AAC' : 'N', 'AAG' : 'K', 'AAT' : 'N',
                       'ACA' : 'T', 'ACC' : 'T', 'ACG' : 'T', 'ACT' : 'T',
@@ -47,11 +60,7 @@ def choose_orf(c = 1):
 
     global sequence
     sequence = f.readline()
-    print c
+    print(c)
     if c == 1 or c == 2 or c ==3:
-        sequence = sequence[c - 1 :]
-        return translate()
-print choose_orf(2)
-print choose_orf(2)
-print choose_orf(3)
-print choose_orf()
+        sequence = sequence[c - 1:]
+    return translate()
